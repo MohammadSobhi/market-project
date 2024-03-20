@@ -1,19 +1,30 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Karma", serif;
+  font-weight: 500;
+  font-style: normal;
+}
 
+h1 {
+  text-align: center;
+  margin-top: 50px; 
+}
 
 
 .site-wrapper {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  background-color: #f5fff2 ;
+  flex-grow: 1 ;
 }
 
 header {
-  height: 110px;
-  width: 80%;
+  height: 50px;
+  width: 100%;
   display: flex;
   align-items: center;
-  padding-right: 10px;
   justify-content: center;
 }
 
@@ -22,11 +33,91 @@ header a {
   text-decoration: none;
   color: #4D4D4D;
   font-weight: 600;
-  font-size: 1.5rem ;
-  padding: 5px 20px;
-
+  padding: 0 20px;
+  border-left: 1px solid #333; 
 }
 
 header a:hover {
   color: #161616;
+}
+
+.header-section{
+  margin: 0% 10% ;
+  
+}
+
+nav {
+  width: 100%;
+  border-bottom: 1px solid #333; 
+  display: flex;
+  padding: 1rem;
+  justify-content: flex-end;
+}
+
+.cards-container{
+  display: flex;
+  justify-content: center;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+  width: 160px;
+}
+
+.product-image {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 0px;
+  object-fit: cover;
+}
+
+.product-title {
+  color: #333;
+  font-size: 18px;
+  margin : 0px;
+}
+
+.product-price {
+  color: #888;
+  font-size: 16px;
+  padding: 5px 0px ;
+  margin: 5px 0px ;
+
+}
+
+.add-to-cart {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+
+}
+
+.buy-button {
+  background-color: #40ce27;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.buy-button:hover {
+  background-color: #45a049;
+  /*
+  #5dc069
+  #40ce27
+  #040311
+  #0094bd
+  #13a1c9
+  */
 }
