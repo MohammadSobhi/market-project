@@ -3,6 +3,7 @@ import Product1Image from "../photos/potato.jpg"
 import Product2Image from "../photos/apple.webp/"
 import Product3Image from "../photos/cucumber.jpg"
 import Product4Image from "../photos/tomato.jpg"
+import { Link } from "react-router-dom"
 
 
 export default function Home() {
@@ -42,12 +43,13 @@ export default function Home() {
             </section>
             <div className="cards-container">
                 {cards.map(card => (
-                
                     <div className="product-card">
-                        <img className="product-image" src={card.src}  alt={card.image}/>
-                        <h2 className="product-title">{card.title}</h2>
-                        <p className="product-price">${card.price}</p>
-                        <p className="add-to-cart">Add to Cart</p>
+                        <Link to={`products/${card.image}`}>
+                            <img className="product-image" src={card.src}  alt={card.image}/>
+                            <h2 className="product-title">{card.title}</h2>
+                            <p className="product-price">${card.price}</p>
+                            <p className="add-to-cart">Add to Cart</p>
+                        </Link>    
                         <button className="buy-button">Buy Now</button>
                     </div>
                 
