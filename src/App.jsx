@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import User from './pages/User'
@@ -14,7 +14,7 @@ import AuthRequired from './components/AuthRequired'
 function App() {
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path='/' element={ <Layout/> } >
           <Route index element={ <Home/> } />
@@ -28,7 +28,7 @@ function App() {
           <Route path='*' element={ <ErrorPage/> } />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
