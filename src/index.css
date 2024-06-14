@@ -4,8 +4,11 @@ html, body {
   font-family: "Karma", serif;
   font-weight: 500;
   font-style: normal;
-  background-color: #f5fff2 ;
+  
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); ;
 }
+
+/*background-color: #f5fff2 ;*/
 
 h1 {
   text-align: center;
@@ -18,13 +21,13 @@ a{
 }
 
 
-.site-wrapper {
+/*.site-wrapper {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   
   flex-grow: 1 ;
-}
+}*/
 
 .link-button {
   display: inline-block;
@@ -40,40 +43,72 @@ a{
   background-color: #161616;
 }
 
-header {
-  height: 50px;
-  width: 100%;
+.navbar {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-
-header a {
-  text-decoration: none;
-  color: #4D4D4D;
-  font-weight: 600;
-  padding: 0 20px;
-  border-left: 1px solid #333; 
-}
-
-header a:hover {
-  color: #161616;
-}
-
-.header-section{
-  margin: 0% 10% ;
-  
-}
-
-nav {
-  width: 100%;
-  border-bottom: 1px solid #333; 
+.logo {
   display: flex;
-  padding: 1rem;
-  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
 }
 
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo span {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.search-bar {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+  flex: 2;
+  margin-left: 20px;
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 500px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+}
+
+.nav-links a.login {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.nav-links a.login:hover {
+  background-color: #0056b3;
+}
 .cards-container{
   display: flex;
   justify-content: center;
@@ -149,37 +184,8 @@ nav {
   */
 }
 
-.search-bar {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left:25%;
-}
 
-.search-bar form {
-  display: flex;
-  align-items: center;
-  width: 60%;
-  justify-content: space-around;
-}
 
-.search-bar input {
-  margin-right: 8px;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-}
-
-.search-bar button {
-  padding: 6px 12px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
 
 .error-page-container{
   display: flex;
@@ -239,3 +245,210 @@ nav {
 .login-form button:hover {
   background-color: #45a049; 
 }
+
+
+.product-details {
+  max-width: 1200px; /* A maximum width for better readability on large screens */
+  margin:  auto; /* Center the content */
+  margin-top: 10px;
+  padding: 20px 20px; /* Add padding for spacing */
+  background: linear-gradient(to bottom,  #e3ffe0,#f5fff2);
+}
+
+.product-details h1 {
+  font-size: 32px; /* Increase font size for h1 */
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.product-details h2 {
+  font-size: 28px; /* Increase font size for h2 */
+  color: #555;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.product-details img {
+  display: block;
+  margin: 0 auto 30px; /* Increase margin for better spacing */
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.product-details p {
+  font-size: 18px; /* Increase font size */
+  color: #666;
+  line-height: 1.6; /* Adjust line height for readability */
+  margin-bottom: 20px; /* Increase margin for better spacing */
+}
+
+.product-details p span {
+  font-weight: bold;
+  color: #333;
+}
+
+.product-details .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Increase gap for better spacing */
+  margin-top: 20px;
+}
+
+.product-details .tags span {
+  background-color: #f1f1f1;
+  color: #555;
+  padding: 8px 15px; /* Increase padding for better look */
+  border-radius: 20px;
+  font-size: 16px; /* Increase font size */
+}
+
+.product-details .price {
+  font-size: 22px; /* Increase font size */
+  color: #d9534f;
+  font-weight: bold;
+  margin-bottom: 20px; /* Increase margin for better spacing */
+}
+
+.product-details .category,
+.product-details .voters,
+.product-details .amount-available,
+.product-details .stars {
+  margin-bottom: 20px; /* Increase margin for better spacing */
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination span {
+  font-size: 18px;
+}
+
+
+/*body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}*/
+
+.form-container {
+    background-color: #fff;
+    padding: 30px;
+    margin-top: 10px;
+    border-radius: 8px;
+    padding-left: 60px;
+    padding-right: 60px;
+    width: 700px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.form-header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.form-header p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.subtext {
+    font-size: 12px;
+    color: #888;
+}
+
+
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 48%;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group.full-width {
+    width: 100%;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-footer p {
+    font-size: 12px;
+    color: #888;
+    margin: 5px 0;
+}
+
+.form-footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.form-container button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #555;
+}
+

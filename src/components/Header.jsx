@@ -15,24 +15,28 @@ export default function Header(params) {
     }
 
     return(
-        <header>
-            <nav>
-                <div className="search-bar">
-                    <form onSubmit={handleSearch}>
-                        <input
-                        type="text"
-                         placeholder="Search..."
+        
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="logo.png" alt="ImageMarket Logo"/>
+                    <span>ImageMarket</span>
+                </div>
+                <div class="search-bar">
+                    <input 
+                        type="text" 
+                        placeholder="Search..."
                         value={searchTerm}
                         onChange={handleInputChange}
-                        />
-                    <button type="submit">Search</button>
-                    </form>
+                    />
                 </div>
-                <Link to="/" >Home</Link>
-                <Link to="/about" >About</Link>
-                <Link to="/cart" >Cart</Link>
-                <Link to="/user" >User</Link>
+                <div class="nav-links">
+                    <Link to="/">Home</Link>
+                    <Link to="/about">About</Link>
+                    <Link to="/products">Products</Link>
+                    <Link to="/user">User</Link>
+                    <Link to="/cart" class="login">Login</Link>
+                </div>
             </nav>
-        </header>
+        
     )
 };
