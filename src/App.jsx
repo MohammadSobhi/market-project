@@ -9,16 +9,19 @@ import ProductDetails from './pages/ProductDetails'
 import ErrorPage from './pages/ErrorPage'
 import Login from './pages/Login'
 import AuthRequired from './components/AuthRequired' 
-
+import Products from './pages/ProductsPage'
+import { AuthProvider } from './AuthContext'
 
 function App() {
 
   return (
+    <AuthProvider>
     <HashRouter>
       <Routes>
         <Route path='/' element={ <Layout/> } >
           <Route index element={ <Home/> } />
           <Route path='about' element={ <About/> } />
+          <Route path='products' element={ <Products/> } />
           <Route element={<AuthRequired/>}>
             <Route path='user' element={ <User/> } />
             <Route path='cart' element={ <Cart/> } />
@@ -29,6 +32,7 @@ function App() {
         </Route>
       </Routes>
     </HashRouter>
+    </AuthProvider>
   )
 }
 

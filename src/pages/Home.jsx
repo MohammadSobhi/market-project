@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Product1Image from "../photos/potato.jpg"
 import Product2Image from "../photos/apple.webp/"
 import Product3Image from "../photos/cucumber.jpg"
 import Product4Image from "../photos/tomato.jpg"
 import { Link } from "react-router-dom"
+import { getProducts } from "../api";
 
 
 export default function Home() {
@@ -33,28 +34,45 @@ export default function Home() {
             src : Product4Image
         },
     ])
+
+
+
+
+
+    const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await getProducts(page);
+        setCard(data.data); 
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, [page]);
+
+
+
+  const handleNextPage = () => {
+    setPage(prevPage => prevPage + 1);
+  };
+
+  const handlePrevPage = () => {
+    setPage(prevPage => Math.max(prevPage - 1, 1));
+  };
+
+
+
     return(
-        <div>
-            <h1>Home page is here</h1>
-            <section className="header-section">
-                <p>Your one-stop destination for all your shopping needs! Explore a wide range of products, from fresh produce to household essentials, all conveniently available at your fingertips.</p>
-                <p>Shop with confidence knowing that we prioritize quality, affordability, and exceptional customer service.</p>
-                <p>Start browsing now and discover the best deals and latest trends in the market. Your shopping experience begins here at bab-jenin market !</p>
-            </section>
-            <div className="cards-container">
-                {cards.map(card => (
-                    <div className="product-card">
-                        <Link to={`products/${card.image}`}>
-                            <img className="product-image" src={card.src}  alt={card.image}/>
-                            <h2 className="product-title">{card.title}</h2>
-                            <p className="product-price">${card.price}</p>
-                            <p className="add-to-cart">Add to Cart</p>
-                        </Link>    
-                        <button className="buy-button">Buy Now</button>
-                    </div>
-                
-                ))}
-            </div>
-        </div>
+      <div className="hero">
+      <div className="hero-content">
+        <h1>Welcome to Our E-commerce Market</h1>
+        <p>Discover a wide range of products and services.</p>
+        <Link to="products" className="btn">View Products</Link>
+      </div>
+    </div>
     )
 };
