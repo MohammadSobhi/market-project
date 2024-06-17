@@ -1,11 +1,36 @@
 import React, { useEffect } from "react";
-import {useParams} from "react-router-dom"
-import { getProductInfo } from "../api";
+import {useParams, useNavigate, useLocation} from "react-router-dom"
+import { getProductInfo, addToCart, getMyCart } from "../api";
+import { getAccessToken } from "../components/AuthRequired";
 
 
 export default function ProductDetails() {
     const {id} = useParams()
     const [product, setProduct] = React.useState(null);
+    const [quantity, setQuantity] = React.useState(1);
+    const navigate = useNavigate();
+    const location = useLocation();
+      
+    const handleDecrement = () => {
+          if (quantity > 1) {
+            setQuantity(quantity - 1);
+          }
+    };
+      
+    const handleIncrement = () => {
+          setQuantity(quantity + 1);
+    };
+
+
+    const handleAddToCart = ()=>{
+        const token = getAccessToken()
+        console.log(token)
+        if(token){
+            addToCart(id,quantity,token)
+        }else{
+            navigate("/login", {state:{ from: location }} )
+        }
+    }
 
 
     useEffect(()=>{
@@ -16,6 +41,9 @@ export default function ProductDetails() {
             console.log(product)
         }
         fetchProduct();
+
+        const token = getAccessToken()
+        console.log(token)
 
     },[id])
 
@@ -30,6 +58,32 @@ export default function ProductDetails() {
 
     return(
         <div className="product-details">
+            <div className="product-image">
+                <img src={product.data.photo} alt="Hi :)"/>
+            </div>
+            <div className="product-info">
+                <h1>{product.data.title}</h1>
+                <p className="price">${product.data.price}</p>
+                <p>Category : <span>{product.data.category}</span></p>
+                <div>
+                    Tags : <span >{product.data.tags}</span>
+                </div>
+                <p>Quantity :</p>
+                <div className="quantity">
+                    <button onClick={handleDecrement}>-</button>
+                    <input type="number" value={quantity} readOnly/>
+                    <button onClick={handleIncrement}>+</button>
+                </div>
+                <button onClick={handleAddToCart} className="add-to-cart">Add to Cart</button>
+                <p>{product.data.description}</p>
+            </div>
+        </div>
+    )
+};
+
+
+
+/*<div className="product-details">
             <h1>{product.data.id} details are here</h1>
             <h2>{product.data.title}</h2>
             <p>{product.data.description}</p>
@@ -43,6 +97,4 @@ export default function ProductDetails() {
         
             </div>
              <p className="stars">Sum of Stars: <span>{product.data.sum_of_stars}</span></p>
-        </div>
-    )
-};
+        </div>*/

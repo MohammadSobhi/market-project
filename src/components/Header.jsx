@@ -1,9 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { getAccessToken, removeAccessToken } from "./AuthRequired";
+import { AuthContext } from "../AuthContext";
+import GB from '../assets/GB.jpg';
+
+
 
 export default function Header(params) {
     const [searchTerm, setSearchTerm] = React.useState("");
+    const { isLoggedIn, handleLogout } = React.useContext(AuthContext);
 
+    React.useEffect(() => {
+        console.log(`isLoggedIn state: ${isLoggedIn}`);
+    }, [isLoggedIn]);
+    
+    
     const handleSearch = (e)=>{
         e.preventDefault();
         console.log(`you searched for ${searchTerm}`)
@@ -16,12 +27,12 @@ export default function Header(params) {
 
     return(
         
-            <nav class="navbar">
-                <div class="logo">
-                    <img src="logo.png" alt="ImageMarket Logo"/>
-                    <span>ImageMarket</span>
+            <nav className="navbar">
+                <div className="logo">
+                    <img src={GB} alt="Logo"/>
+                    <span>GraduatingProject</span>
                 </div>
-                <div class="search-bar">
+                <div className="search-bar">
                     <input 
                         type="text" 
                         placeholder="Search..."
@@ -29,12 +40,13 @@ export default function Header(params) {
                         onChange={handleInputChange}
                     />
                 </div>
-                <div class="nav-links">
+                <div className="nav-links">
                     <Link to="/">Home</Link>
                     <Link to="/about">About</Link>
                     <Link to="/products">Products</Link>
                     <Link to="/user">User</Link>
-                    <Link to="/cart" class="login">Login</Link>
+                    <Link to="/cart" className="login">{isLoggedIn ? "Cart" : "Login"}</Link>
+                    {isLoggedIn && (<Link to="/login"className="logout" onClick={handleLogout}>Logout</Link>)}
                 </div>
             </nav>
         

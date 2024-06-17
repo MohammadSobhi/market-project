@@ -1,3 +1,7 @@
+import { getAccessToken, setAccessToken, removeAccessToken } from "./components/AuthRequired";
+
+
+
 export async function login(credentials){
     try {
         const response = await fetch('http://127.0.0.1:8000/auth/login', {
@@ -5,14 +9,34 @@ export async function login(credentials){
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body: `username=${loginFormData.username}&password=${loginFormData.password}` })
+            body: `username=${credentials.username}&password=${credentials.password}` })
         const data = await response.json();
+        return data
         console.log(data);
     } catch (error) {
         console.log(error)
     }
 }
 
+
+
+export async function signup(credentials){
+    try {
+        const response = await fetch('http://127.0.0.1:8000/auth/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(
+                credentials,               
+            )})        
+        const data = await response.json();
+        return data
+        console.log(data);
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 export async function getAllUsers(){
     try {
@@ -231,13 +255,13 @@ export async function deleteMyProfile(){///idk why not working
 }
 
 
-export async function getMyCart(){
+export async function getMyCart(token){
     try {
         const response = await fetch('http://127.0.0.1:8000/cart/getCart', {
             method: 'GET',
             headers: {
                 'accept': 'application/json',
-                'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsImV4cCI6MTcxODI4NTk2M30.pR2WMu4AnVWY4m4CI3F1BP-r3xZSH5eyfGSQe0Q_GKw`
+                'Authorization': `Bearer ${token}`
             }
         })
         const data = await response.json()
@@ -249,13 +273,13 @@ export async function getMyCart(){
 }
 
 
-export async function addToCart(){
+export async function addToCart(productId,amount,token){
     try {
-        const response = await fetch('http://127.0.0.1:8000/cart/addProducttToCart/4/3', {
+        const response = await fetch(`http://127.0.0.1:8000/cart/addProducttToCart/${productId}/${amount}`, {
             method: 'POST',
             headers: {
                 'accept': 'application/json',
-                'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsImV4cCI6MTcxODI4NTk2M30.pR2WMu4AnVWY4m4CI3F1BP-r3xZSH5eyfGSQe0Q_GKw`
+                'Authorization': `Bearer ${token}`
             }
         })
         const data = await response.json()
