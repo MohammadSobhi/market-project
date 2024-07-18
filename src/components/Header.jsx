@@ -45,8 +45,21 @@ export default function Header(params) {
                     <Link to="/about">About</Link>
                     <Link to="/products">Products</Link>
                     <Link to="/user">User</Link>
+
                     <Link to="/cart" className="login">{isLoggedIn ? "Cart" : "Login"}</Link>
                     {isLoggedIn && (<Link to="/login"className="logout" onClick={handleLogout}>Logout</Link>)}
+
+
+                    {isLoggedIn && (<Link to="/cart" className="login" >Cart</Link>)}
+                    
+                    <Link to="/login" 
+                        className={isLoggedIn ? "logout":"login"}
+                        onClick={isLoggedIn ? handleLogout : null}
+                    >  
+                        {isLoggedIn ? "Logout" : "Login"}
+                    </Link>
+                    
+
                 </div>
             </nav>
         
