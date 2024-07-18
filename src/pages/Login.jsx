@@ -43,7 +43,7 @@ export default function Login() {
                 const from = location.state?.from?.pathname || "/";
                 navigate(from, { replace: true });
             } else {
-                setErrorMessage('userame or password is incorrect or backend is 💩');
+                setErrorMessage('userame or password is incorrect ');
             }
         } catch (error) {
             console.error('Login Error:', error);
@@ -69,11 +69,11 @@ export default function Login() {
                 const from = location.state?.from?.pathname || "/";
                 navigate(from, { replace: true });
             } else {
-                setErrorMessage('backend is 💩');
+                setErrorMessage('check the error message from the backend');
             }
         } catch (error) {
             console.error('Login Error:', error);
-            setErrorMessage('An error occurred. Please try again.');
+            setErrorMessage('🙂 فرش السيرفر، طلع عتيرمينال السيرفر ');
         }
           setSignupFormData({
             username: '',

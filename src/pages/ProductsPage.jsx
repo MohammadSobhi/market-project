@@ -1,13 +1,26 @@
 import React from "react";
-import { getProducts } from "../api";
+import { getProducts, checkIfAdmin } from "../api";
 import { Link } from "react-router-dom"
-
+import { getAccessToken } from "../components/AuthRequired";
+import { useNavigate } from 'react-router-dom'; 
 
 export default function Products() {
+
+    const navigate = useNavigate(); 
     const [cards,setCard] = React.useState([])
     const [page, setPage] = React.useState(1);
+    const [isAdmin,setIsAdmin] = React.useState(false);
 
   React.useEffect(() => {
+    const token = getAccessToken()
+    if(token){
+        const checkAdmin = async () => {
+            const data = await checkIfAdmin(token);
+            console.log(data)
+            setIsAdmin(data)
+        }
+        checkAdmin();
+    }
     const fetchProducts = async () => {
       try {
         const data = await getProducts(page);
@@ -96,6 +109,15 @@ export default function Products() {
                         <option>Price: High to Low</option>
                     </select>
                 </div>
+
+            {isAdmin && (
+            <div className="add-product">
+              <button onClick={() => navigate('/add-product')}>
+                Add Product
+              </button>
+            </div>
+            )}
+
                 <div className="product-grid">
                 
                 {cards.map(card =>(

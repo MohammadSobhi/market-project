@@ -18,13 +18,10 @@ a{
 }
 
 
-/*.site-wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  
-  flex-grow: 1 ;
-}*/
+.layout{
+  height: 100%;
+  width: 100%;
+}
 
 .link-button {
   display: inline-block;
@@ -339,8 +336,33 @@ a{
 .add-to-registry:hover {
   background-color: #555;
 }
+.admin-button {
+  background-color: #e62a2a; 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease; 
+}
 
+.admin-button:hover {
+  background-color: #b71c1c; 
+}
 
+.admin-edit-button {
+  background-color: #04a033; 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease; 
+}
 
 
 
@@ -703,6 +725,29 @@ a{
 .product-item a:hover {
   text-decoration: underline;
 }
+.add-product {
+  text-align: right; /* Align button to the right */
+  margin-bottom: 20px; /* Add spacing below the button */
+}
+
+.add-product button {
+  background-color: #007bff; /* Blue background color */
+  color: white; 
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.add-product button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
 
 
 
@@ -975,4 +1020,173 @@ h1 {
 
 .btn:hover {
   background-color: #ff4d4d;
+}
+
+
+
+.profile-body {
+  background-color: #f8f9fa; /* Softer background  */
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh; /* Ensure content fills the screen */
+}
+
+/* Profile Container */
+.profile-container {
+  background-color: white;
+  padding: 30px 40px; /* Increased padding */
+  border-radius: 15px; /* Softer rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* More subtle shadow */
+  max-width: 700px;
+  min-height: 400px;
+  width: 90%;
+  text-align: center;
+  margin-top: 80px;
+  position: relative; /* Make the container a positioned element */
+}
+
+/* Profile Photo */
+.profile-photo {
+  margin: 0 auto 40px auto; /* Center photo, add bottom margin */
+}
+
+.profile-photo img {
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border: 3px solid #e9ecef; /* Light gray border */
+  transition: transform 0.2s ease; /* Add a hover effect */
+}
+
+.profile-photo img:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Profile Information */
+.profile-info {
+  text-align: left; /* Align text to the left */
+}
+
+.profile-info h1 {
+  margin: 0 0 40px 0; /* Add some spacing */
+  
+  color: black; 
+}
+
+.profile-info p {
+  margin: 20px 0;
+  
+  color: black; 
+}
+
+.edit-button {
+  position: absolute; 
+  bottom: 20px; 
+  right: 10px; 
+  background-color: #04a033;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.profile-info form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.profile-info label {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info input,
+select {
+  padding: 5px;
+}
+
+.profile-info .edit-button {
+  margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.add-product-container {
+  max-width: 500px;
+  padding: 20px;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.add-product-container h2 {
+  margin-top: 0;
+}
+
+
+.add-product-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.add-product-container input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.add-product-container button {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.error-message {
+  color: #dc3545;
+  margin-bottom: 10px;
+}
+
+.add-product-form-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.form-inline {
+  margin-bottom: 10px;
+  width: 40%;
+}
+
+
+.form-inline label {
+  margin-right: 10px;
+}
+
+.form-inline input {
+  flex: 1;
 }

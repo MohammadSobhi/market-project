@@ -10,6 +10,7 @@ import ErrorPage from './pages/ErrorPage'
 import Login from './pages/Login'
 import AuthRequired from './components/AuthRequired' 
 import Products from './pages/ProductsPage'
+import AddProduct from './pages/AddProduct'
 import { AuthProvider } from './AuthContext'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route index element={ <Home/> } />
           <Route path='about' element={ <About/> } />
           <Route path='products' element={ <Products/> } />
+          <Route path='add-product' element={ <AddProduct/> } />
           <Route element={<AuthRequired/>}>
             <Route path='user' element={ <User/> } />
             <Route path='cart' element={ <Cart/> } />
