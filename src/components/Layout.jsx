@@ -5,7 +5,7 @@ import Header from "./Header";
 
 export default function Layout(params) {
     return(
-        <div className="site-wrapper">
+        <div className="layout">
             <Header/>
             <Outlet/>
         </div>
