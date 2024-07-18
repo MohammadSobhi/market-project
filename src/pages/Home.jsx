@@ -67,32 +67,12 @@ export default function Home() {
 
 
     return(
-        <div className="home-container">
-            <h1>Home page is here</h1>
-            <section className="header-section">
-                <p>Your one-stop destination for all your shopping needs! Explore a wide range of products, from fresh produce to household essentials, all conveniently available at your fingertips.</p>
-                <p>Shop with confidence knowing that we prioritize quality, affordability, and exceptional customer service.</p>
-                <p>Start browsing now and discover the best deals and latest trends in the market. Your shopping experience begins here at bab-jenin market !</p>
-            </section>
-            <div className="cards-container">
-                {cards.map(card => (
-                    <div className="product-card">
-                        <Link to={`products/${card.id}`}>
-                            <img className="product-image" src={card.src}  alt={card.image}/>
-                            <h2 className="product-title">{card.title}</h2>
-                            <p className="product-price">${card.id}</p>
-                            <p className="add-to-cart">Add to Cart</p>
-                        </Link>    
-                        <button className="buy-button">Buy Now</button>
-                    </div>
-                
-                ))}
-            </div>
-            <div className="pagination">
-                <button onClick={handlePrevPage} disabled={page === 1}>Previous</button>
-                <span>Page {page}</span>
-                <button onClick={handleNextPage}>Next</button>
-            </div>
-        </div>
+      <div className="hero">
+      <div className="hero-content">
+        <h1>Welcome to Our E-commerce Market</h1>
+        <p>Discover a wide range of products and services.</p>
+        <Link to="products" className="btn">View Products</Link>
+      </div>
+    </div>
     )
 };
