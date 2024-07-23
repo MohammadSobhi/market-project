@@ -21,7 +21,8 @@ export default function Login() {
         address: '',
         cart_id: 0,
         role: 0,
-        favorites: ''
+        favorites: '',
+        authType: 0
       });
     const [confirmPassword, setConfirmPassword] = useState("")
     const [isLogin, setIsLogin] = useState(true);
